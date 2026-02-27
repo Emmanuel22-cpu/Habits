@@ -79,7 +79,7 @@ Levanta la app en `http://localhost:5173`
 ## Stack tecnológico
 
 
-``
+
  React 18 -
  Vite -
  Tailwind CSS v4 -
