@@ -6,7 +6,6 @@ export function useHabits() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Carga inicial al montar
   useEffect(() => {
     habitService
       .getAll()
@@ -17,24 +16,23 @@ export function useHabits() {
 
   const completeHabit = async (id) => {
     const habit = habits.find((h) => h.id === id);
-    if (!habit || habit.completedToday) return;
+    if (!habit) return;
+
+    const newValue = !habit.completedToday;
 
     setHabits((prev) =>
-      prev.map((h) =>
-        h.id === id ? { ...h, completedToday: true, streak: h.streak + 1 } : h
-      )
+      prev.map((h) => h.id === id ? { ...h, completedToday: newValue } : h)
     );
+
     try {
-        const updated = await habitService.update(id, {
-        completedToday: true,
-        streak: habit.streak + 1,
-      });
+      const updated = await habitService.update(id, { completedToday: newValue });
       setHabits((prev) => prev.map((h) => (h.id === id ? updated : h)));
     } catch {
-          setHabits((prev) => prev.map((h) => (h.id === id ? habit : h)));
+      setHabits((prev) => prev.map((h) => (h.id === id ? habit : h)));
     }
   };
-    const createHabit = async (data) => {
+
+  const createHabit = async (data) => {
     const newHabit = await habitService.create(data);
     setHabits((prev) => [...prev, newHabit]);
     return newHabit;
@@ -50,14 +48,6 @@ export function useHabits() {
     setHabits((prev) => prev.filter((h) => h.id !== id));
   };
 
-  const resetStreak = async (id) => {
-    const updated = await habitService.update(id, {
-      streak: 0,
-      completedToday: false,
-    });
-    setHabits((prev) => prev.map((h) => (h.id === id ? updated : h)));
-  };
-
   return {
     habits,
     loading,
@@ -66,6 +56,5 @@ export function useHabits() {
     createHabit,
     editHabit,
     deleteHabit,
-    resetStreak,
   };
 }

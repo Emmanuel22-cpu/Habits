@@ -2,7 +2,6 @@ export function EmptyState({ hasFilters, onCreateClick }) {
   if (hasFilters) {
     return (
       <div className="flex flex-col items-center justify-center py-24 text-center">
-        <div className="text-5xl mb-4">🔎</div>
         <h3 className="font-serif text-xl text-stone-600 mb-2">
           Sin resultados
         </h3>
@@ -15,7 +14,6 @@ export function EmptyState({ hasFilters, onCreateClick }) {
 
   return (
     <div className="flex flex-col items-center justify-center py-24 text-center">
-      <div className="text-5xl mb-4">🌱</div>
       <h3 className="font-serif text-xl text-stone-600 mb-2">
         Aún no tienes hábitos creados
       </h3>

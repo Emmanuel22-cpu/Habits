@@ -1,0 +1,44 @@
+{
+  "habits": [
+    {
+      "id": "1",
+      "name": "Meditación",
+      "description": "10 minutos de meditación consciente cada mañana",
+      "category": "Personal",
+      "completedToday": false,
+      "createdAt": "2025-01-10T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Ejercicio",
+      "description": "30 minutos de cardio o entrenamiento de fuerza",
+      "category": "Salud",
+      "completedToday": false,
+      "createdAt": "2025-01-15T00:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "name": "Tomar agua",
+      "description": "Beber 8 vasos de agua durante el día",
+      "category": "Salud",
+      "completedToday": true,
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "5",
+      "name": "Estudiar Ingles",
+      "description": "Practicar duolingo minimo 10 minutos \n",
+      "category": "Personal",
+      "completedToday": true,
+      "createdAt": "2026-02-27T00:00:00.000Z"
+    },
+    {
+      "id": "5da7",
+      "name": "Lectura ",
+      "description": "Leer mínimo 3 paginas de un libro ",
+      "category": "Personal",
+      "completedToday": false,
+      "createdAt": "2026-02-27T21:39:06.355Z"
+    }
+  ]
+}

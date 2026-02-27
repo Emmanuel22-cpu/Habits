@@ -1,16 +1,110 @@
-# React + Vite
+# 🌱Mis Hábitos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+App para registrar y hacer seguimiento a hábitos diarios. Permite crear, editar, eliminar y marcar hábitos como completados, con búsqueda, filtros por categoría y persistencia de datos mediante una API REST simulada con json-server.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Estructura del proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+src/
+├── components/
+│   ├── estado.jsx       # Estado vacío (sin hábitos / sin resultados)
+│   ├── filterBar.jsx        # Búsqueda + filtros por estado y categoría
+│   ├── habitForm.jsx        # Modal de crear/editar con validación
+│   ├── habitItem.jsx        # Tarjeta individual de un hábito
+│   └── habitList.jsx        # Lista con estados loading/error/empty
+├── helpers/
+│   └── habitUtils.js        # Funciones puras: filtrar, colores, estadísticas
+├── hooks/
+│   └── useHabits.js         # Lógica de negocio y estado global de hábitos
+├── pages/
+│   └── home.jsx             # Página principal, tiene todos los componentes
+├── services/
+│   └── habitService.js      # Capa de acceso a datos (fetch a la API)
+├── App.jsx
+├── main.jsx
+└── index.css
+db.json                      # Base de datos de json-server
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+---
+
+## Instalación y configuración
+
+
+### Requisitos previos
+
+- Node.js 18+
+- npm 9+
+
+### 1. Clona el repositorio
+
+```bash
+git clone https://github.com/tu-usuario/habits.git
+cd habits
+```
+
+### 2. Instala las dependencias
+
+```bash
+npm install
+```
+
+### 3. Verifica que el archivo `db.json` esté en la raíz del proyecto
+
+El archivo `db.json` contiene los datos iniciales de la app. Debe estar junto al `package.json`.
+
+
+
+## Cómo correr el proyecto
+
+Necesitas **dos terminales** corriendo al mismo tiempo:
+
+**Terminal 1 — API (json-server):**
+```bash
+npm run api
+```
+Levanta la API REST en `http://localhost:3001`
+
+**Terminal 2 — App (Vite):**
+```bash
+npm run dev
+```
+Levanta la app en `http://localhost:5173`
+
+
+##  Endpoints de la API
+
+La API es servida por json-server en `http://localhost:3001`.
+
+| Método   | Endpoint        | Descripción              |
+|----------|-----------------|--------------------------|
+| `GET`    | `/habits`       | Obtiene todos los hábitos |
+| `POST`   | `/habits`       | Crea un nuevo hábito      |
+| `PATCH`  | `/habits/:id`   | Edita un hábito           |
+| `DELETE` | `/habits/:id`   | Elimina un hábito         |
+
+
+## Stack tecnológico
+
+
+
+ React 18 
+ Vite 
+ Tailwind CSS v4 
+ json-server 
+
+
+
+##  Funcionalidades
+
+-  Crear hábitos con validación de formulario
+-  Editar hábitos existentes
+-  Eliminar hábitos
+-  Marcar/desmarcar hábitos como completados
+-  Búsqueda en tiempo real por nombre
+-  Filtros por estado (Todos / Completados / Pendientes)
+-  Filtros por categoría (Salud / Estudio / Productividad / Personal)
+-  Estados de loading, error y empty state
+-  Persistencia de datos con json-server

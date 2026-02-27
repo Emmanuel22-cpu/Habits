@@ -50,16 +50,7 @@ export const getHabitStats = (habits) => ({
   total: habits.length,
   completedToday: habits.filter((h) => h.completedToday).length,
   pending: habits.filter((h) => !h.completedToday).length,
-  maxStreak: habits.length > 0 ? Math.max(...habits.map((h) => h.streak)) : 0,
 });
-
-export const getStreakEmoji = (streak) => {
-  if (streak >= 30) return String.fromCodePoint(0x1F3C6);
-  if (streak >= 14) return String.fromCodePoint(0x1F525); 
-  if (streak >= 7)  return String.fromCodePoint(0x26A1);  
-  if (streak >= 3)  return String.fromCodePoint(0x2728);  
-  return String.fromCodePoint(0x1F331);                   
-};
 
 export const formatCreatedAt = (date) =>
   new Date(date).toLocaleDateString("es-CO", {
