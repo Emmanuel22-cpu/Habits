@@ -1,4 +1,4 @@
-# 🌱Mis Hábitos
+# Mis Hábitos
 
 App para registrar y hacer seguimiento a hábitos diarios. Permite crear, editar, eliminar y marcar hábitos como completados, con búsqueda, filtros por categoría y persistencia de datos mediante una API REST simulada con json-server.
 
@@ -6,7 +6,7 @@ App para registrar y hacer seguimiento a hábitos diarios. Permite crear, editar
 
 ## Estructura del proyecto
 
-
+```
 src/
 ├── components/
 │   ├── estado.jsx       # Estado vacío (sin hábitos / sin resultados)
@@ -26,12 +26,11 @@ src/
 ├── main.jsx
 └── index.css
 db.json                      # Base de datos de json-server
-
+```
 
 ---
 
 ## Instalación y configuración
-
 
 ### Requisitos previos
 
@@ -41,14 +40,17 @@ db.json                      # Base de datos de json-server
 ### 1. Clona el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/habits.git
+git clone https://github.com/Emmanuel22-cpu/Habits.git
 cd habits
 ```
 
 ### 2. Instala las dependencias
 
 ```bash
-npm install
+ - Primero debes instalar npm i
+ - Luego instalas npm install -D json-server
+ - Luego instalas npm install lucide-react
+ - Y por ulitmo debes instalar esto npm install react-magic-motion
 ```
 
 ### 3. Verifica que el archivo `db.json` esté en la raíz del proyecto
@@ -74,25 +76,13 @@ npm run dev
 Levanta la app en `http://localhost:5173`
 
 
-##  Endpoints de la API
-
-La API es servida por json-server en `http://localhost:3001`.
-
-| Método   | Endpoint        | Descripción              |
-|----------|-----------------|--------------------------|
-| `GET`    | `/habits`       | Obtiene todos los hábitos |
-| `POST`   | `/habits`       | Crea un nuevo hábito      |
-| `PATCH`  | `/habits/:id`   | Edita un hábito           |
-| `DELETE` | `/habits/:id`   | Elimina un hábito         |
-
-
 ## Stack tecnológico
 
 
-
- React 18 
- Vite 
- Tailwind CSS v4 
+``
+ React 18 -
+ Vite -
+ Tailwind CSS v4 -
  json-server 
 
 
